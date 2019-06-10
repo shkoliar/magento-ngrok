@@ -1,0 +1,30 @@
+{
+  "name": "shkoliar/module-ngrok",
+  "description": "Magento 2 module for ngrok.io service support",
+  "require": {
+    "php": "~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0|~7.2.0",
+    "magento/framework": "~100.1.0|~101.0.0|~102.0.0"
+  },
+  "type": "magento2-module",
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "Dmitry Shkoliar",
+      "email": "dmitry@shkoliar.com",
+      "homepage": "https://shkoliar.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Shkoliar\\Ngrok\\": ""
+    }
+  },
+  "minimum-stability": "dev",
+  "version": "1.0.0"
+}

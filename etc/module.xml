@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * module.xml
+ *
+ * @copyright Copyright © 2019 Dmitry Shkoliar. All rights reserved.
+ * @author    dmitry@shkoliar.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Shkoliar_Ngrok" setup_version="1.0.0" />
+</config>
