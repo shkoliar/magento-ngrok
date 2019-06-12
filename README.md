@@ -7,7 +7,7 @@ Magento 2 module for [ngrok](https://ngrok.com) service support. Automatically u
 To install the module to your local Magento 2 dev environment, simply run the command below.
 
 ```bash
-composer require --dev shkoliar/magento-2-ngrok
+composer require --dev shkoliar/magento-ngrok
 ```
 
 The next step is to check if module is installed and exists in the modules list.
