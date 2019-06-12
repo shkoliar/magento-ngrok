@@ -47,7 +47,8 @@ class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @return bool
      */
-    public function isSecure() {
+    public function isSecure()
+    {
         $isRequestSecure = $this->_request->isSecure();
 
         if (!$isRequestSecure) { // fix for older magento versions

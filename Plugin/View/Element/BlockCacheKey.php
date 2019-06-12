@@ -13,7 +13,7 @@ use Magento\Framework\View\Element\AbstractBlock;
 
 /**
  * Class BlockCacheKey
- * Should modify cache key for block_html cache with taking in count domain name and protocol
+ * Should modify cache key for block_html cache with taking into account domain name and protocol
  */
 class BlockCacheKey
 {
@@ -31,7 +31,7 @@ class BlockCacheKey
     }
 
     /**
-     * Modifies cache key for block_html cache with taking in count domain name and protocol
+     * Modifies cache key for block_html cache with taking into account domain name and protocol
      *
      * @param AbstractBlock $subject    Intercepted object of \Magento\Framework\View\Element\AbstractBlock class
      * @param string $result            Key for caching block content

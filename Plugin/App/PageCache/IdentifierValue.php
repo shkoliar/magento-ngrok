@@ -13,7 +13,7 @@ use Magento\Framework\App\PageCache\Identifier;
 
 /**
  * Class IdentifierValue
- * Should modify identifier for a built-in cache with taking in count domain name and protocol
+ * Should modify identifier for a built-in cache with taking into account domain name and protocol
  */
 class IdentifierValue
 {
@@ -31,7 +31,7 @@ class IdentifierValue
     }
 
     /**
-     * Modifies identifier for a built-in cache with taking in count domain name and protocol
+     * Modifies identifier for a built-in cache with taking into account domain name and protocol
      *
      * @param Identifier $subject   Intercepted object of \Magento\Framework\App\PageCache\Identifier class
      * @param string $result        Unique page identifier
