@@ -45,8 +45,7 @@ class StoreBaseUrl
             $subject->getConfig($subject::XML_PATH_UNSECURE_BASE_URL)
         ];
 
-        if (in_array($result, $defaultBaseUrls) && $ngrokDomain = $this->ngrok->getDomain())
-        {
+        if (in_array($result, $defaultBaseUrls) && $ngrokDomain = $this->ngrok->getDomain()) {
             $protocol = $this->ngrok->getProtocol();
 
             return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR;
