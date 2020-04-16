@@ -8,7 +8,6 @@
 
 namespace Shkoliar\Ngrok\Helper;
 
-
 class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const SCHEME_HTTP  = 'http';
@@ -51,9 +50,11 @@ class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $isRequestSecure = $this->_request->isSecure();
 
-        if (!$isRequestSecure) { // fix for older magento versions
-            $isRequestSecure = stripos($this->getServer(self::HTTP_X_FORWARDED_PROTO),
-                    self::SCHEME_HTTPS) === 0;
+        if (!$isRequestSecure) { // fix for older Magento versions
+            $isRequestSecure = stripos(
+                $this->getServer(self::HTTP_X_FORWARDED_PROTO),
+                self::SCHEME_HTTPS
+            ) === 0;
         }
 
         return $isRequestSecure;
