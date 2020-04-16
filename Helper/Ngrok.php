@@ -8,7 +8,6 @@
 
 namespace Shkoliar\Ngrok\Helper;
 
-
 class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
 {
     const SCHEME_HTTP  = 'http';
