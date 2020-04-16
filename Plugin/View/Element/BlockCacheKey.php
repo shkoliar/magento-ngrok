@@ -52,6 +52,4 @@ class BlockCacheKey
 
         return $result;
     }
-
-
 }
