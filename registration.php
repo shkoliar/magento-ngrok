@@ -2,7 +2,7 @@
 /**
  * registration.php
  *
- * @copyright Copyright © 2019 Dmitry Shkoliar. All rights reserved.
+ * @copyright Copyright © 2021 Dmitry Shkoliar. All rights reserved.
  * @author    dmitry@shkoliar.com
  */
 \Magento\Framework\Component\ComponentRegistrar::register(
