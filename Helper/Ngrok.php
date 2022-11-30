@@ -42,6 +42,15 @@ class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     /**
+    * Fix PHP 8.1
+    * return bool 
+    */   
+    public function IsNgrokDomain() : bool
+    {
+        return $this->getDomain() != false ? true : false;
+    }
+
+    /**
      * Returns whether request was delivered over HTTPS
      *
      * @return bool

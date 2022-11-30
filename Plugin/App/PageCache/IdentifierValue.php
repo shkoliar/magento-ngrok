@@ -40,11 +40,9 @@ class IdentifierValue
      */
     public function afterGetValue(Identifier $subject, $result)
     {
-        $ngrokDomain = $this->ngrok->getDomain();
-
-        if ($ngrokDomain) {
+        if ($this->ngrok->isNgrokDomain()) {
+            $ngrokDomain = $this->ngrok->getDomain();
             $protocol = $this->ngrok->getProtocol();
-
             return sha1($protocol . $ngrokDomain . $result);
         }
 
