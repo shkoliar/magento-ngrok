@@ -15,6 +15,12 @@
                 sortOrder="100"
                 disabled="false"/>
     </type>
+     <type name="Magento\Store\Model\BaseUrlChecker">
+        <plugin name="shkoliar-ngrok-store-base-url-plugin-cheker"
+                type="Shkoliar\Ngrok\Plugin\Model\BaseUrlChecker"
+                sortOrder="100"
+                disabled="false"/>
+    </type>
     <type name="Magento\Framework\App\PageCache\Identifier">
         <plugin name="shkoliar-ngrok-identifier-value-plugin"
                 type="Shkoliar\Ngrok\Plugin\App\PageCache\IdentifierValue"
