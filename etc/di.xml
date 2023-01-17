@@ -33,4 +33,10 @@
                 sortOrder="100"
                 disabled="false"/>
     </type>
+    <type name="Magento\Framework\Session\Config">
+        <plugin name="shkoliar-ngrok-block-cookie-domain-plugin"
+                type="Shkoliar\Ngrok\Plugin\Session\ConfigValue"
+                sortOrder="100"
+                disabled="false"/>
+    </type>
 </config>
