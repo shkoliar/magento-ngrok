@@ -40,13 +40,10 @@ class BlockCacheKey
      */
     public function afterGetCacheKey(AbstractBlock $subject, $result)
     {
-        $ngrokDomain = $this->ngrok->getDomain();
-
-        if ($ngrokDomain) {
+        if ($this->ngrok->isNgrokDomain()) {
+            $ngrokDomain = $this->ngrok->getDomain();
             $protocol = $this->ngrok->getProtocol();
-
             $hash = $subject::CACHE_KEY_PREFIX . sha1($result . $protocol . $ngrokDomain);
-
             return $hash;
         }
 

@@ -40,17 +40,54 @@ class StoreBaseUrl
      */
     public function afterGetBaseUrl(Store $subject, $result)
     {
-        $defaultBaseUrls = [
-            $subject->getConfig($subject::XML_PATH_SECURE_BASE_URL),
-            $subject->getConfig($subject::XML_PATH_UNSECURE_BASE_URL)
-        ];
+        if($this->ngrok->IsNgrokDomain()){
 
-        if (in_array($result, $defaultBaseUrls) && $ngrokDomain = $this->ngrok->getDomain()) {
-            $protocol = $this->ngrok->getProtocol();
+            $ngrokDomain = $this->ngrok->getDomain();
+            
+            $defaultBaseUrls = [
+                $subject->getConfig($subject::XML_PATH_SECURE_BASE_URL),
+                $subject->getConfig($subject::XML_PATH_UNSECURE_BASE_URL)
+            ];
+    
+            if (in_array($result, $defaultBaseUrls)) {
+                $protocol = $this->ngrok->getProtocol();
+    
+                return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR;
+            }
+        
 
-            return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR;
+            /* Media URL Base */
+            $mediaBaseUrls = [
+                $subject->getConfig($subject::XML_PATH_SECURE_BASE_MEDIA_URL),
+                $subject->getConfig($subject::XML_PATH_UNSECURE_BASE_MEDIA_URL)
+            ];
+
+            if (in_array($result, $mediaBaseUrls)) {
+                $protocol = $this->ngrok->getProtocol();
+                return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR. 'media' . DIRECTORY_SEPARATOR;
+            }
+
+
+            /* Static URL Base */
+            $staticBaseUrls = [
+                $subject->getConfig($subject::XML_PATH_SECURE_BASE_STATIC_URL),
+                $subject->getConfig($subject::XML_PATH_UNSECURE_BASE_STATIC_URL)
+            ];
+
+            if (in_array($result, $staticBaseUrls)) {
+                $protocol = $this->ngrok->getProtocol();
+                return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR. 'static' . DIRECTORY_SEPARATOR;
+            }
         }
 
         return $result;
+    }
+
+    /**
+     *  When use free ngrok is necesary change to unsecure frontend urls to prevent loop redirect
+     */
+    public function afterIsUrlSecure(Store $subject, $result)
+    {
+        return $this->ngrok->IsNgrokDomain() == true ? 0 : $result; 
     }
 }
