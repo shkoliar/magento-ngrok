@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="ngrok_tab" translate="label, comment" sortOrder="1000">
+        <tab id="ngrok_tab" translate="label" sortOrder="1000">
             <label>Ngrok</label>
         </tab>
         <section id="ngrok"
