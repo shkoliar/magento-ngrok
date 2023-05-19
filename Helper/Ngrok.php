@@ -8,14 +8,22 @@
 
 namespace Shkoliar\Ngrok\Helper;
 
-class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
+use Magento\Framework\App\Helper\AbstractHelper;
+use Shkoliar\Ngrok\Model\Config;
+
+class Ngrok extends AbstractHelper
 {
     const SCHEME_HTTP  = 'http';
     const SCHEME_HTTPS = 'https';
 
-    const NGROK_DOMAIN = '.ngrok.io';
-
     const HTTP_X_FORWARDED_PROTO = 'HTTP_X_FORWARDED_PROTO';
+
+    /**
+     * @param Config $config
+     */
+    public function __construct(
+        private Config $config
+    ) {}
 
     /**
      * Get server parameter value by key
@@ -38,7 +46,13 @@ class Ngrok extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $ngrokDomain = $this->getServer('HTTP_X_ORIGINAL_HOST') ?: $this->getServer('HTTP_HOST');
 
-        return stripos($ngrokDomain, self::NGROK_DOMAIN) !== false ? $ngrokDomain : false;
+        if ($this->config->isCustomDomain()) {
+            $configuredNgrokDomain = $this->config->getCustomDomain();
+        } else {
+            $configuredNgrokDomain = $this->config->getDomain();
+        }
+
+        return stripos($ngrokDomain, $configuredNgrokDomain) !== false ? $ngrokDomain : false;
     }
 
     /**

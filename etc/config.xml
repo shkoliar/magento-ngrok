@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ngrok>
+            <general>
+                <custom>0</custom>
+                <domain>.ngrok-free.app</domain>
+            </general>
+        </ngrok>
+    </default>
+</config>
