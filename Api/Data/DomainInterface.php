@@ -2,7 +2,7 @@
 
 namespace Shkoliar\Ngrok\Api\Data;
 
-interface Domain
+interface DomainInterface
 {
     public const NGROK_IO = '.ngrok.io';
 
