@@ -9,6 +9,7 @@
 namespace Shkoliar\Ngrok\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
 use Shkoliar\Ngrok\Model\Config;
 
 class Ngrok extends AbstractHelper
@@ -19,11 +20,15 @@ class Ngrok extends AbstractHelper
     const HTTP_X_FORWARDED_PROTO = 'HTTP_X_FORWARDED_PROTO';
 
     /**
+     * @param Context $context
      * @param Config $config
      */
     public function __construct(
+        protected Context $context,
         private Config $config
-    ) {}
+    ) {
+        parent::__construct($context);
+    }
 
     /**
      * Get server parameter value by key
