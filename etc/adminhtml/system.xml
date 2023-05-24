@@ -34,7 +34,7 @@
                        showInDefault="1">
                     <label>Domain</label>
                     <validate>required-entry</validate>
-                    <source_model>Admenta\Ngrok\Model\Config\Source\Domain</source_model>
+                    <source_model>Shkoliar\Ngrok\Model\Config\Source\Domain</source_model>
                 </field>
                 <field id="custom_domain"
                        translate="label"
