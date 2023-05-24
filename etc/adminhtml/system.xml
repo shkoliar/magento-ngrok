@@ -12,6 +12,7 @@
             <class>separator-top</class>
             <label>Ngrok</label>
             <tab>ngrok_tab</tab>
+            <resource>Shkoliar_Ngrok::config</resource>
             <group id="general"
                    translate="label"
                    type="text"
