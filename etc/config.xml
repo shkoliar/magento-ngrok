@@ -4,7 +4,7 @@
     <default>
         <ngrok>
             <general>
-                <custom>0</custom>
+                <enable_custom_domain>0</enable_custom_domain>
                 <domain>.ngrok-free.app</domain>
             </general>
         </ngrok>

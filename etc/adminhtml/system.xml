@@ -19,22 +19,22 @@
                    sortOrder="10"
                    showInDefault="1">
                 <label>General</label>
-                <field id="custom"
+                <field id="domain"
                        translate="label"
                        type="select"
                        sortOrder="10"
                        showInDefault="1">
+                    <label>Domain</label>
                     <validate>required-entry</validate>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <source_model>Shkoliar\Ngrok\Model\Config\Source\Domain</source_model>
                 </field>
-                <field id="domain"
+                <field id="enable_custom_domain"
                        translate="label"
                        type="select"
                        sortOrder="20"
                        showInDefault="1">
-                    <label>Domain</label>
                     <validate>required-entry</validate>
-                    <source_model>Shkoliar\Ngrok\Model\Config\Source\Domain</source_model>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="custom_domain"
                        translate="label"
@@ -42,6 +42,7 @@
                        sortOrder="30"
                        showInDefault="1">
                     <label>Custom Domain</label>
+                    <depends>ngrok/general/enable_custom_domain</depends>
                 </field>
             </group>
         </section>

@@ -6,7 +6,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Config
 {
-    private const XML_IS_CUSTOM_DOMAIN = 'ngrok/general/custom';
+    private const XML_IS_CUSTOM_DOMAIN = 'ngrok/general/enable_custom_domain';
     private const XML_DOMAIN = 'ngrok/general/domain';
     private const XML_CUSTOM_DOMAIN = 'ngrok/general/custom_domain';
 
@@ -20,7 +20,7 @@ class Config
     /**
      * @return bool
      */
-    public function isCustomDomain(): bool
+    public function isCustomDomainEnabled(): bool
     {
         return $this->scopeConfig->isSetFlag(
             self::XML_IS_CUSTOM_DOMAIN
