@@ -13,11 +13,21 @@ class Domain implements OptionSourceInterface
     public function toOptionArray(): array
     {
         return [
-            DomainInterface::NGROK_IO => DomainInterface::NGROK_IO,
-            DomainInterface::NGROK_APP => DomainInterface::NGROK_APP,
-            DomainInterface::NGROK_DEV => DomainInterface::NGROK_DEV,
-            DomainInterface::NGROK_FREE_APP => DomainInterface::NGROK_FREE_APP,
-            DomainInterface::NGROK_FREE_DEV => DomainInterface::NGROK_FREE_DEV
+            [
+                'label' => DomainInterface::NGROK_IO, 'value' => DomainInterface::NGROK_IO
+            ],
+            [
+                'label' => DomainInterface::NGROK_APP, 'value' => DomainInterface::NGROK_APP
+            ],
+            [
+                'label' => DomainInterface::NGROK_DEV, 'value' => DomainInterface::NGROK_DEV
+            ],
+            [
+                'label' => DomainInterface::NGROK_FREE_APP, 'value' => DomainInterface::NGROK_FREE_APP
+            ],
+            [
+                'label' => DomainInterface::NGROK_FREE_DEV, 'value' => DomainInterface::NGROK_FREE_DEV
+            ]
         ];
     }
 }
