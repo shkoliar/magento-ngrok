@@ -51,11 +51,9 @@ class Ngrok extends AbstractHelper
     {
         $ngrokDomain = $this->getServer('HTTP_X_ORIGINAL_HOST') ?: $this->getServer('HTTP_HOST');
 
-        if ($this->config->isCustomDomainEnabled()) {
-            $configuredNgrokDomain = $this->config->getCustomDomain();
-        } else {
-            $configuredNgrokDomain = $this->config->getDomain();
-        }
+        $configuredNgrokDomain = $this->config->isCustomDomainEnabled() ?
+            $this->config->getCustomDomain() :
+            $this->config->getDomain();
 
         return stripos($ngrokDomain, $configuredNgrokDomain) !== false ? $ngrokDomain : false;
     }
