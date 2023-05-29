@@ -42,7 +42,9 @@
                        sortOrder="30"
                        showInDefault="1">
                     <label>Custom Domain</label>
-                    <depends>ngrok/general/enable_custom_domain</depends>
+                    <depends>
+                        <field id="ngrok/general/enable_custom_domain">1</field>
+                    </depends>
                 </field>
             </group>
         </section>
