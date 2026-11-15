@@ -52,7 +52,7 @@ class StoreBaseUrl
             if (in_array($result, $defaultBaseUrls)) {
                 $protocol = $this->ngrok->getProtocol();
     
-                return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR;
+                return $protocol . $ngrokDomain . $this->getPath($result);
             }
         
 
@@ -64,7 +64,7 @@ class StoreBaseUrl
 
             if (in_array($result, $mediaBaseUrls)) {
                 $protocol = $this->ngrok->getProtocol();
-                return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR. 'media' . DIRECTORY_SEPARATOR;
+                return $protocol . $ngrokDomain . $this->getSegmentPath($result, $defaultBaseUrls[1], 'media/');
             }
 
 
@@ -76,11 +76,41 @@ class StoreBaseUrl
 
             if (in_array($result, $staticBaseUrls)) {
                 $protocol = $this->ngrok->getProtocol();
-                return $protocol . $ngrokDomain . DIRECTORY_SEPARATOR. 'static' . DIRECTORY_SEPARATOR;
+                return $protocol . $ngrokDomain . $this->getSegmentPath($result, $defaultBaseUrls[1], 'static/');
             }
         }
 
         return $result;
+    }
+
+    /**
+     * Path of the URL including leading and trailing slash
+     *
+     * @param string $url
+     *
+     * @return string
+     */
+    private function getPath($url)
+    {
+        return (string)parse_url((string)$url, PHP_URL_PATH) ?: '/';
+    }
+
+    /**
+     * Path of a media or static URL, relative to the installation directory of the store
+     *
+     * @param string $url         Retrieved URL
+     * @param string $baseUrl     Default base URL of the store
+     * @param string $segment     Trailing path segment, e.g. "media/"
+     *
+     * @return string
+     */
+    private function getSegmentPath($url, $baseUrl, $segment)
+    {
+        $path = $this->getPath($url);
+
+        return substr($path, -strlen('/' . $segment)) === '/' . $segment
+            ? $path
+            : $this->getPath($baseUrl) . $segment;
     }
 
     /**
