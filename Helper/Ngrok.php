@@ -55,6 +55,10 @@ class Ngrok extends AbstractHelper
             $this->config->getCustomDomain() :
             $this->config->getDomain();
 
+        if ($configuredNgrokDomain === '') {
+            return false;
+        }
+
         return stripos($ngrokDomain, $configuredNgrokDomain) !== false ? $ngrokDomain : false;
     }
 
